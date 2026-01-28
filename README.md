@@ -98,7 +98,11 @@ During preprocessing, sequences are standardised:
 `configs/experiment/train_profam_example.yaml` is configured to run using data in: `data/train_example`.
 
 ```bash
-python src/train.py experiment=train_profam_example logger=null_logger
+python src/train.py experiment=train_profam_example
+```
+or if flash-attn is not installed:
+```bash
+python src/train.py experiment=train_profam_example model.config.attn_implementation=sdpa data.pack_to_max_tokens=null model.pass_res_pos_in_doc_as_position_ids=false
 ```
 
 ### Train with the ProFam-Atlas dataset
